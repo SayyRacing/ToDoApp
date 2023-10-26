@@ -8,53 +8,45 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ToDoApp
 build_property.RootNamespace = ToDoApp
-build_property.ProjectDir = /Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/
+build_property.ProjectDir = /Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp
+build_property.MSBuildProjectDirectory = /Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/App.razor]
+[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/Pages/Index.razor]
+[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/Shared/SurveyPrompt.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
+[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/Pages/ToDoList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG9Eb0xpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/_Imports.razor]
+[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/Shared/MainLayout.razor]
+[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-myor90iv7p
 
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/Shared/NavMenu.razor]
+[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ix8tule5w0
 
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/Pages/Error.cshtml]
+[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/Pages/_Host.cshtml]
+[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/ToDoApp/Pages/_Layout.cshtml]
+[/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
