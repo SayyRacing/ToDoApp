@@ -114,9 +114,17 @@
         
         if (isOk)
         {
-            using var context = ContextFactory.CreateDbContext();
-            context.ToDoItems.Remove(todoItem);
-            await context.SaveChangesAsync();
+            try
+            {
+                using var context = ContextFactory.CreateDbContext();
+                context.ToDoItems.Remove(todoItem);
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+             // This handles concurrency issues
+            }
+
             await LoadData();
         }
         
