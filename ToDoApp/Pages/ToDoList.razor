@@ -1,7 +1,8 @@
-@page "/todolist/{CurrentPage:int?}"
+@page "/todolist/tasks/{CurrentPage:int?}"
 @using Microsoft.EntityFrameworkCore
 @inject IDbContextFactory<ToDoAppDbContext> ContextFactory
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JS
 
 
 <div class="background-grad p-5 m-5">
@@ -10,24 +11,23 @@
     </div>
 
     <div class="d-grid gap-2">
-        <input class="form-control form-control-lg" type="text"/>
-        <button class="btn btn-primary">Add</button>
+        <button class="btn btn-primary" @onclick="redirectToAdd">Add a new task</button>
     </div>
 
     <hr />
     
     <ul class="pagination" mt-3>
         <li class="page-item @(CurrentPage == 1 ? "disabled" : "")">
-            <a class="page-link" href="/todolist/@(CurrentPage - 1)">Previous</a>
+            <a class="page-link" href="/todolist/tasks/@(CurrentPage - 1)">Previous</a>
             </li>
         @for (int i = 1; i <= TotalPages; i++)
         {
             <li class="page-item @(CurrentPage == i ? "active" : "")">
-                <a class="page-link" href="/todolist/@i">@i</a>
+                <a class="page-link" href="/todolist/tasks/@i">@i</a>
             </li>
         }
         <li class="page-item @(CurrentPage == TotalPages ? "disabled" : "")">
-            <a class="page-link" href="/todolist/@(CurrentPage + 1)">Next</a>
+            <a class="page-link" href="/todolist/tasks/@(CurrentPage + 1)">Next</a>
             </li>
     </ul>
     
@@ -36,6 +36,7 @@
         <tr>
             <th>Task</th>
             <th>Due</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -44,6 +45,7 @@
             <tr>
                 <td>@todoItem.Name</td>
                 <td>@todoItem.ExpiryDate</td>
+                <td><button class="btn btn-info" @onclick="() => HandleDelete(todoItem)">Complete</button></td>
             </tr>
         }
         </tbody>
@@ -75,6 +77,11 @@
     
     protected override async Task OnParametersSetAsync()
     {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
         if (CurrentPage is null or < 1)
         {
             CurrentPage = 1;
@@ -93,7 +100,26 @@
             .Skip(itemsToSkip)
             .Take(ItemsPerPage)
             .ToArrayAsync();
-        
+
     }
     
+    void redirectToAdd()
+    {
+        NavigationManager.NavigateTo("/todolist/addtask");
+    }
+    
+    private async Task HandleDelete(ToDoItem todoItem)
+    {
+        var isOk = await JS.InvokeAsync<bool>("confirm", $"Are you sure you want to set {todoItem.Name} as complete?");
+        
+        if (isOk)
+        {
+            using var context = ContextFactory.CreateDbContext();
+            context.ToDoItems.Remove(todoItem);
+            await context.SaveChangesAsync();
+            await LoadData();
+        }
+        
+    }
+
 }

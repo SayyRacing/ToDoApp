@@ -1,0 +1,95 @@
+@page "/todolist/addtask"
+@using Microsoft.EntityFrameworkCore
+@inject IDbContextFactory<ToDoAppDbContext> ContextFactory
+
+<h1>Add Task</h1>
+
+@if (ToDoItem is not null)
+{
+    <EditForm Model="@ToDoItem" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+        <DataAnnotationsValidator />
+        
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Name</label>
+            <InputText id="firstname" class="form-control" @bind-Value="ToDoItem.Name" />
+            <ValidationMessage For="() => ToDoItem.Name" />
+        </div>
+        <div class="mb-3">
+            <label for="expirydate" class="form-label">Expiry Date</label>
+            <InputDate id="expirydate" class="form-control" @bind-Value="ToDoItem.ExpiryDate"/>
+            <ValidationMessage For="() => ToDoItem.ExpiryDate" />
+        </div>
+        
+        <button type="submit" class="btn btn-primary" disabled="@IsBusy">Add</button>
+    </EditForm>
+    
+    @if (SuccessMessage is not null)
+    {
+        <br/>
+        <div class="alert alert-success">@SuccessMessage</div>
+    }
+    
+    @if (ErrorMessage is not null)
+    {
+        <br/>
+        <div class="alert alert-danger">@ErrorMessage</div>
+    }
+}
+
+@code {
+    public ToDoItem? ToDoItem { get; set; }
+    
+    private string? SuccessMessage { get; set; }
+    private string? ErrorMessage { get; set; }
+    
+    private bool IsBusy { get; set; }
+    
+    protected override void OnInitialized()
+    {
+        ToDoItem = new();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (IsBusy)
+        {
+            return;
+        }
+        
+        IsBusy = true;
+
+        try
+        {
+            if (ToDoItem is not null)
+            {
+                using var context = ContextFactory.CreateDbContext();
+
+                context.ToDoItems.Add(ToDoItem);
+                await context.SaveChangesAsync();
+
+                SuccessMessage = $"Task {ToDoItem.Name} was added successfully";
+                ErrorMessage = null;
+
+                ToDoItem = new()
+                {
+                    ExpiryDate = DateTime.Now
+                };
+            }
+        }
+        catch (Exception ex)
+        {
+            SuccessMessage = null;
+            ErrorMessage = $"Error while adding task: {ex.Message}";
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+    }
+    
+    private void HandleInvalidSubmit()
+    {
+        SuccessMessage = null;
+        ErrorMessage = null;
+    }
+}
