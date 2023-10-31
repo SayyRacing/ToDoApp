@@ -1,4 +1,8 @@
-@page "/todolist"
+@page "/todolist/{CurrentPage:int?}"
+@using Microsoft.EntityFrameworkCore
+@inject IDbContextFactory<ToDoAppDbContext> ContextFactory
+@inject NavigationManager NavigationManager
+
 
 <div class="background-grad p-5 m-5">
     <div class="alert alert-primary" role="alert">
@@ -6,50 +10,90 @@
     </div>
 
     <div class="d-grid gap-2">
-        <input class="form-control form-control-lg" type="text" @bind="newToDoItem"/>
-        <button class="btn btn-primary" @onclick="addToDoItem">Add</button>
+        <input class="form-control form-control-lg" type="text"/>
+        <button class="btn btn-primary">Add</button>
     </div>
 
     <hr />
-
-    <ol class="list-group">
-        @foreach (string todoItem in todoList)
+    
+    <ul class="pagination" mt-3>
+        <li class="page-item @(CurrentPage == 1 ? "disabled" : "")">
+            <a class="page-link" href="/todolist/@(CurrentPage - 1)">Previous</a>
+            </li>
+        @for (int i = 1; i <= TotalPages; i++)
         {
-            <li class="list-group-item">
-                @todoItem
-                <button class="btn btn-danger btn-sm float-end" @onclick="() => deleteToDoItem(todoItem)">
-                    <span class="oi oi-delete"></span>
-                </button>
+            <li class="page-item @(CurrentPage == i ? "active" : "")">
+                <a class="page-link" href="/todolist/@i">@i</a>
             </li>
         }
-    </ol>
+        <li class="page-item @(CurrentPage == TotalPages ? "disabled" : "")">
+            <a class="page-link" href="/todolist/@(CurrentPage + 1)">Next</a>
+            </li>
+    </ul>
+    
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Task</th>
+            <th>Due</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach(var todoItem in ToDoItems)
+        {
+            <tr>
+                <td>@todoItem.Name</td>
+                <td>@todoItem.ExpiryDate</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+    
 </div>
 
 <style type="text/css">
 
 .background-grad{
-    background-color: #0857ea;
-    background-image: linear-gradient(0deg, #0857ea 0%, #2af56a 100%);
+    background-color: #293583;
+    background-image: linear-gradient(160deg, #293583 0%, #60a93e 100%);
+
 }
     
 </style>
 
+
 @code {
-    List<string> todoList = new () {"Mow the lawn", "Walk the dog", "Clean the house", "Submit timesheet"};
-    string newToDoItem = "";
-
-
-    void addToDoItem()
+    [Parameter]
+    public int? CurrentPage { get; set; }
+    
+   private ToDoItem[]? ToDoItems { get; set; }
+    
+    private int TotalPages { get; set; }
+        
+        private const int ItemsPerPage = 4;
+    
+    protected override async Task OnParametersSetAsync()
     {
-        if(string.IsNullOrWhiteSpace(newToDoItem) == false)
+        if (CurrentPage is null or < 1)
         {
-            todoList.Add(newToDoItem);
-            newToDoItem = "";
+            CurrentPage = 1;
         }
+        
+        using var context = ContextFactory.CreateDbContext();
+        
+        var taskCount = await context.ToDoItems.CountAsync();
+        TotalPages = taskCount == 0 ? 1 : (int)Math.Ceiling((double)taskCount /ItemsPerPage);
+        
+        var itemsToSkip = (CurrentPage.Value - 1) * ItemsPerPage;
+        
+        
+        ToDoItems = await context.ToDoItems
+            .OrderBy(tdi => tdi.ExpiryDate)
+            .Skip(itemsToSkip)
+            .Take(ItemsPerPage)
+            .ToArrayAsync();
+        
     }
     
-    void deleteToDoItem(string todoItemDelete)
-    {
-        todoList.Remove(todoItemDelete);
-    }
 }

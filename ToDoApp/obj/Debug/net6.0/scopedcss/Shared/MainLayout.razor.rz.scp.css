@@ -9,7 +9,10 @@ main[b-myor90iv7p] {
 }
 
 .sidebar[b-myor90iv7p] {
-    background-image: linear-gradient(0deg, #0857ea 0%, #2af56a 100%);
+
+    background-color: #293583;
+    background-image: linear-gradient(160deg, #293583 0%, #60a93e 100%);
+
 }
 
 .top-row[b-myor90iv7p] {

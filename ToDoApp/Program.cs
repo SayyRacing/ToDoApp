@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
-using ToDoApp;
 using ToDoApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddDbContext<ToDoAppDbContext>(opt => opt.UseSqlite(builder.Configuration.GetConnectionString("ToDoAppDb")));
+builder.Services.AddDbContextFactory<ToDoAppDbContext>(opt => opt.UseSqlite(builder.Configuration.GetConnectionString("ToDoAppDb")));
 
 var app = builder.Build();
 

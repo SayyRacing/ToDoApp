@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ToDoApp.Data.Models;
 
-public class Product
+public class ToDoItem
 {
     public int Id { get; set; }
     [Required]
