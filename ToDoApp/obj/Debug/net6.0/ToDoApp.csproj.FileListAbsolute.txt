@@ -89,3 +89,16 @@
 /Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/obj/Debug/net6.0/ToDoApp.csproj.CopyComplete
 /Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/Humanizer.dll
 /Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/AngleSharp.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/AngleSharp.Css.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/AngleSharp.Diffing.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/Bunit.Core.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/AngleSharpWrappers.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/Bunit.Web.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/Microsoft.AspNetCore.Components.WebAssembly.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/Microsoft.JSInterop.WebAssembly.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/xunit.abstractions.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/xunit.assert.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/xunit.core.dll
+/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/bin/Debug/net6.0/xunit.execution.dotnet.dll

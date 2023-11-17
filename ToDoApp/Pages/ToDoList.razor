@@ -11,7 +11,7 @@
     </div>
 
     <div class="d-grid gap-2">
-        <button class="btn btn-primary" @onclick="redirectToAdd">Add a new task</button>
+        <button class="btn btn-primary" @onclick="RedirectToAdd">Add a new task</button>
     </div>
 
     <hr />
@@ -69,7 +69,7 @@
     [Parameter]
     public int? CurrentPage { get; set; }
     
-   private ToDoItem[]? ToDoItems { get; set; }
+    private ToDoItem[]? ToDoItems { get; set; }
     
     private int TotalPages { get; set; }
         
@@ -103,7 +103,7 @@
 
     }
     
-    void redirectToAdd()
+    void RedirectToAdd()
     {
         NavigationManager.NavigateTo("/todolist/addtask");
     }

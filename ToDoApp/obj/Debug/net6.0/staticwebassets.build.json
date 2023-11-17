@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IL2wMCaZB+CMFzrbtUuoUVDblNZJ+gVwnyoxVmIEYSk=",
+  "Hash": "vrmBtq0LSiYQ/k1IL4igqnY7CcCOp8v47bKNZT5bsk8=",
   "Source": "ToDoApp",
   "BasePath": "_content/ToDoApp",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "/Users/szymon.paluszewski/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/6.0.0/staticwebassets/AuthenticationService.js",
+      "SourceId": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/szymon.paluszewski/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/6.0.0/staticwebassets/",
+      "BasePath": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+      "RelativePath": "AuthenticationService.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/szymon.paluszewski/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/6.0.0/staticwebassets/AuthenticationService.js"
+    },
     {
       "Identity": "/Users/szymon.paluszewski/RiderProjects/ToDoApp/ToDoApp/obj/Debug/net6.0/scopedcss/bundle/ToDoApp.styles.css",
       "SourceId": "ToDoApp",
